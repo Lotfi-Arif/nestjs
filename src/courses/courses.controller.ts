@@ -4,17 +4,17 @@ import { CreateCourseDto } from './create-course.dto';
 
 @Controller('courses')
 export class CoursesController {
-
-    constructor(private coursesService: CoursesService){}
+    constructor(private coursesService: CoursesService) {}
 
     @Get()
     async getCourses() {
-        const course = await this.coursesService.getCourses();
+        const courses = await this.coursesService.getCourses();
+        return courses;
     }
 
     @Get(':courseId')
-    async getCourse(@Param('courseId') courseId){
-        const course = await this.coursesService.getCousrse(courseId);
+    async getCourse(@Param('courseId') courseId) {
+        const course = await this.coursesService.getCourse(courseId);
         return course;
     }
 
